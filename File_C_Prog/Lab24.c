@@ -3,10 +3,9 @@
 int main(){
 	int A[Max_Size][Max_Size], B[Max_Size][Max_Size], C[Max_Size][Max_Size];
 	int i,j;
-	int sum;
-	float average;
+	int sum = 0;
+	float average = 0;
 
-	//input A[][]
 	for ( i = 0 ; i < Max_Size ; i++ ){
 		for ( j = 0 ; j < Max_Size ; j++ ){
 			printf("Please enter Value in A[%d][%d] : ",i,j);
@@ -14,7 +13,6 @@ int main(){
 		}
 	}
 
-	//input B[][]
 	for ( i = 0 ; i < Max_Size ; i++ ){
 		for ( j = 0 ; j < Max_Size ; j++ ){
 			printf("Please enter Value in B[%d][%d] : ",i,j);
@@ -22,8 +20,8 @@ int main(){
 		}
 	}
 
+
 	printf("\n=========================\n");
-	//C[][] = A[][] * B[][]
 	for ( i = 0 ; i < Max_Size ; i++ ){
 		for ( j = 0 ; j < Max_Size ; j++ ){
 			C[i][j] = A[i][j] * B[i][j];
@@ -31,9 +29,9 @@ int main(){
 			printf("C[%d][%d] is : %d\n",i,j,C[i][j]);
 		}
 	}
-	average = sum / 25;
 
-	printf("\n\nAverage Array C is : %d",average);
+	average = sum / (Max_Size * Max_Size);
 
+	printf("\n\n**Average Array C is : %.2f\n",average);
 
 }
