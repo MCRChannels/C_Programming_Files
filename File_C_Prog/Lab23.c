@@ -19,10 +19,10 @@ int main()
 	for(i = 0 ; i < 10 ; i++){
 		printf("Please enter value in B[%d] : ",i);
 		while (scanf("%d",&B[i]) != 1){
-				printf("\nDon't input Alphabet");
-				printf("\nPlease input again!");
-				printf("\nPlease enter value in B[%d] : ",i);
-				while(getchar() != '\n');
+			printf("\nDon't input Alphabet");
+			printf("\nPlease input again!");
+			printf("\nPlease enter value in B[%d] : ",i);
+			while(getchar() != '\n');
 		}
 	}
 
