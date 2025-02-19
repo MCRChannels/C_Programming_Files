@@ -26,7 +26,7 @@ int main(){
 			printf("Please input again\n");
 		}
 
-	} while (size_i > Max_Size && size_j > Max_Size);
+	} while (size_i > Max_Size || size_j > Max_Size);
 	printf("\n");
 	for ( i = 0 ; i < size_i ; i++ ){
 		for ( j = 0 ; j < size_j ; j++ ){
