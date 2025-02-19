@@ -61,7 +61,7 @@ int main(){
 		}
 	}
 
-	average = sum / (size_i * size_j);
+	average = (float)sum / (size_i * size_j);
 
 	printf("\n**Average Array C is : %.2f\n",average);
 
