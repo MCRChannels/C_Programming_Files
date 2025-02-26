@@ -34,7 +34,7 @@ int main() {
             else if (room_number == 3) room3 = people;
             else if (room_number == 4) room4 = people;
             else if (room_number == 5) room5 = people;
-            printf("Checked in %d people to Room %d.\n", people, room_number);
+            printf("Checked in %d people to Room %d.\n", people, room_number); // input n people
         } else if (option == 2) {  // Check-out
             printf("\nEnter room number (1-5): ");
             scanf("%d", &room_number);
@@ -62,7 +62,7 @@ int main() {
 
 void printMenu() {
     printf("\n========================================\n");
-    printf("        HOTEL MANAGEMENT SYSTEM        \n");
+    printf("          RESERVE ROOM SYSTEM        \n");
     printf("========================================\n");
     printf("1. Check-in\n");
     printf("2. Check-out\n");
