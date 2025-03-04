@@ -6,12 +6,22 @@ void printRooms(int room1, int room2, int room3, int room4, int room5);
 int main() {
     int room1 = 0, room2 = 0, room3 = 0, room4 = 0, room5 = 0;
     int option, room_number, people;
+    float decimal_check;
+
     while (1) {
+
         printMenu();   // printf menu 1 - 4
-        scanf("%d", &option);
+
+        if (scanf("%d.%f", &option, &decimal_check) == 2) {
+            printf("* Please enter only Integer *\n");
+            while (getchar() != '\n');
+            continue;
+        }
+
         if (option == 1) {  // Check-in
             printf("\nEnter room number (1-5): ");
             scanf("%d", &room_number);
+
             if (room_number < 1 || room_number > 5) {
                 printf("* Please Enter room only (1-5) *\n");
                 continue;
@@ -54,7 +64,7 @@ int main() {
             printf("\nExiting program... Have a great day!\n");
             break;
         } else {
-            printf("Invalid option! Please try again.\n");
+            printf("* Nah Invalid option. Please try again *\n");
         }
     }
     return 0;
