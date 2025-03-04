@@ -1,40 +1,83 @@
 #include <stdio.h>
+#define MAX 10
+
+void swap(int *arr1, int *arr2, int size, int index);
+void display(int arr[], int size);
 
 int main() {
+    int arr1[MAX], arr2[MAX], index;
+    int size_i, i;
+    char choice;
 
-    int y1[5] = {1, 2, 3, 4, 5};
-    int y2[2][3] = {{1, 2, 3}, {4, 5, 6}};
-    int y3[2][2][3] = {{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {10, 11, 12}}};
+    do {
+        printf("Please enter size of array: ");
+        scanf("%d", &size_i);
 
-    int *p1, *p2, *p3;
-    int i, j, k;
+        printf("\n* Please enter value of array *\n");
 
-  	//Array1D
-    p1 = &y1[0]; // pointer to y1
-    printf("Array 1D: \n");
-    for (i = 0; i < 5; i++) {
-        printf("y1[%d] = %d, Address = %p\n", i, *(p1 + i), (p1 + i));
-    }
-
-    //Array2D
-    p2 = &y2[0][0];   // pointer to y2
-    printf("\nArray 2D: \n");
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 3; j++) {
-            printf("y2[%d][%d] = %d, Address = %p\n", i, j, *(p2 + i * 3 + j), (p2 + i * 3 + j));
+        printf("\nArray 1\n");
+        for (i = 0; i < size_i; i++) {
+            arr1[i] = 0;
+            printf("arr1[%d]: ", i);
+            scanf("%d", &arr1[i]);
         }
-    }
 
-    // Array3D
-    p3 = &y3[0][0][0];  // pointer to y3
-    printf("\nArray 3D: \n");
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 2; j++) {
-            for (k = 0; k < 3; k++) {
-                printf("y3[%d][%d][%d] = %d, Address = %p\n", i, j, k, *(p3 + i * 6 + j * 3 + k), (p3 + i * 6 + j * 3 + k));
-            }
+        printf("\nArray 2\n");
+        for (i = 0; i < size_i; i++) {
+            arr2[i] = 0;
+            printf("arr2[%d]: ", i);
+            scanf("%d", &arr2[i]);
         }
-    }
+
+        printf("\n* All value in array *\n");
+        printf("\nArray 1\n");
+        display(arr1, size_i);
+        printf("\nArray 2\n");
+        display(arr2, size_i);
+
+        printf("\nEnter the index to swap: ");
+        scanf("%d", &index);
+
+        printf("Before swapping:\n");
+        printf("\nArray 1\n");
+        display(arr1, size_i);
+        printf("\nArray 2\n");
+        display(arr2, size_i);
+
+        swap(arr1, arr2, size_i, index);
+
+        printf("After swapping:\n");
+        printf("\nArray 1\n");
+        display(arr1, size_i);
+        printf("\nArray 2\n");
+        display(arr2, size_i);
+
+        printf("\nDo you want to continue? (Y/N): ");
+        scanf(" %c", &choice);  //
+    } while (choice != 'n' && choice != 'N');
+
+    printf("\n");
 
     return 0;
 }
+
+
+void swap(int *arr1, int *arr2, int size, int index) {
+    if (index >= 0 && index < size) {
+        int temp = *(arr1 + index);
+        *(arr1 + index) = *(arr2 + index);
+        *(arr2 + index) = temp;
+    } else {
+        printf("Invalid index!\n");
+    }
+}
+
+void display(int arr[], int size) {
+    int i;
+    for (i = 0; i < size; i++) {
+        printf("%d\t", arr[i]);
+    }
+    printf("\n");
+}
+
+
