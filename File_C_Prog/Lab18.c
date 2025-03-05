@@ -14,13 +14,15 @@ int main() {
 
         if (scanf("%d.%f", &option, &decimal_check) == 2) {
             printf("* Please enter only Integer *\n");
-            while (getchar() != '\n');
             continue;
         }
 
         if (option == 1) {  // Check-in
             printf("\nEnter room number (1-5): ");
-            scanf("%d", &room_number);
+            if (scanf("%d.%f", &option, &decimal_check) == 2) {
+				printf("* Please enter only Integer *\n");
+           		continue;
+			}
 
             if (room_number < 1 || room_number > 5) {
                 printf("* Please Enter room only (1-5) *\n");
@@ -45,9 +47,13 @@ int main() {
             else if (room_number == 4) room4 = people;
             else if (room_number == 5) room5 = people;
             printf("Checked in %d people to Room %d.\n", people, room_number); // input n people
+
         } else if (option == 2) {  // Check-out
             printf("\nEnter room number (1-5): ");
-            scanf("%d", &room_number);
+            if (scanf("%d.%f", &option, &decimal_check) == 2) {
+				printf("* Please enter only Integer *\n");
+			    continue;
+			}
             if (room_number < 1 || room_number > 5) {
                 printf("* Please Enter room only (1-5) *\n");
                 continue;
@@ -58,8 +64,10 @@ int main() {
             else if (room_number == 4) room4 = 0;
             else if (room_number == 5) room5 = 0;
             printf("Checked out Room %d.\n", room_number);
+
         } else if (option == 3) {  // View rooms
             printRooms(room1, room2, room3, room4, room5);
+
         } else if (option == 4) {  // Exit
             printf("\nExiting program... Have a great day!\n");
             break;
