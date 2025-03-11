@@ -26,7 +26,7 @@ int main() {
 
     	printf("Do you want to continue? (Y/N) : ");
     	scanf(" %c",&end);
-	}while (end != 'N', end != 'n');
+	}while (end != 'N' && end != 'n');
 
 	printf ("Program is ending ...");
 
