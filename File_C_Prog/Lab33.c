@@ -43,9 +43,7 @@ int main() {
 				printf("\nEnter the index arr1 to swap (0 - %d): ",size_i - 1);
             	scanf("%d", &index1);
 
-            	if (index1 > size_i - 1){
-					printf("\nIndex must not over than %d",size_i -1);
-				}
+            	if (index1 > size_i - 1) printf("\nIndex must not over than %d",size_i -1);
 				
 			} while(index1 > size_i -1);
 
@@ -54,9 +52,7 @@ int main() {
 				printf("\nEnter the index arr2 to swap (0 - %d): ",size_i - 1);
             	scanf("%d", &index2);
 
-            	if (index2 > size_i - 1){
-					printf("\nIndex must not over than %d",size_i -1);
-				}
+            	if (index2 > size_i - 1) printf("\nIndex must not over than %d",size_i -1);
 				
 			} while(index2 > size_i -1);
 
