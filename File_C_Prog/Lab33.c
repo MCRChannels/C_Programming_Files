@@ -33,13 +33,13 @@ int main() {
         }
 
         printf("\n* All values in arrays *\n");
-        printf("\nArray 1\n");
+        printf("\n======== Array 1 ========\n");
         display(arr1, size_i);
-        printf("\nArray 2\n");
+        printf("======== Array 2 ========\n");
         display(arr2, size_i);
 
         do {
-            printf("\nEnter the indices to swap (index1 index2): ");
+            printf("\nEnter the index to swap (0 - %d): ",size_i - 1);
             scanf("%d %d", &index1, &index2);
 
             if (index1 < 0 || index1 >= size_i || index2 < 0 || index2 >= size_i)
@@ -47,19 +47,29 @@ int main() {
 
         } while (index1 < 0 || index1 >= size_i || index2 < 0 || index2 >= size_i);
 
-        printf("\nBefore swapping:\n");
-        printf("\nArray 1\n");
+        printf("\n==========================");
+        printf("\n==== Before swapping ====\n");
+        printf("Array 1\n");
         display(arr1, size_i);
-        printf("\nArray 2\n");
+        printf("Array 2\n");
         display(arr2, size_i);
+        printf("==========================");
+
+        printf("\n==== Switching ==== \narr1[%d] = %d (Address: %u) \narr2[%d] = %d (Address: %u)\n",
+               index1, arr1[index1], (arr1 + index1), index2, arr2[index2], (arr2 + index2));
 
         swap(arr1, arr2, size_i, index1, index2);
 
-        printf("\nAfter swapping:\n");
-        printf("\nArray 1\n");
+        printf("\n===== To ===== \narr1[%d] = %d (Address: %u) \narr2[%d] = %d (Address: %u)\n",
+               index1, arr1[index1], (arr1 + index1), index2, arr2[index2], (arr2 + index2));
+
+		printf("==========================");
+        printf("\n==== After swapping ====\n");
+        printf("Array 1\n");
         display(arr1, size_i);
-        printf("\nArray 2\n");
+        printf("Array 2\n");
         display(arr2, size_i);
+        printf("==========================");
 
         printf("\nDo you want to continue? (Y/N): ");
         scanf(" %c", &choice);
@@ -70,21 +80,21 @@ int main() {
 }
 
 void swap(int *arr1, int *arr2, int size, int index1, int index2) {
-    // Correctly swap elements between two arrays
     if (index1 >= 0 && index1 < size && index2 >= 0 && index2 < size) {
-        int temp = arr1[index1];
-        arr1[index1] = arr2[index2];
-        arr2[index2] = temp;
+        int temp = *(arr1 + index1);
+        *(arr1 + index1) = *(arr2 + index2);
+        *(arr2 + index2) = temp;
     } else {
         printf("Wrong index, Try again!\n");
     }
 }
 
-
 void display(int arr[], int size) {
     int i;
+    int *p;
+    p = &arr[0];
     for (i = 0; i < size; i++) {
-		printf("Value[%d]: %d, Address: %u\n", i, arr[i], &arr[i]);
+		printf("Value[%d]: %d, Address: %u\n", i, *(p + i), (p + i));
     }
     printf("\n");
 }
