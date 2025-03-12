@@ -77,9 +77,9 @@ void main() {
 	        }
 	    }
     	shortestMessage(word1, word2, word3);
-    	
+
     	while (getchar() != '\n');
-    	
+
     	printf("Do you want to continue? (Y/N) : ");
     	scanf(" %c", &end);
 	} while (end != 'N' && end != 'n');
