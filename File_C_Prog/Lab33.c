@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAX 10
 
-void swap(int *arr1, int *arr2, int size, int index1, int index2);
+void swap(int *arr1, int *arr2, int index1, int index2);
 void display(int arr[], int size);
 
 int main() {
@@ -44,7 +44,7 @@ int main() {
             	scanf("%d", &index1);
 
             	if (index1 > size_i - 1) printf("\nIndex must not over than %d",size_i -1);
-				
+
 			} while(index1 > size_i -1);
 
 
@@ -53,7 +53,7 @@ int main() {
             	scanf("%d", &index2);
 
             	if (index2 > size_i - 1) printf("\nIndex must not over than %d",size_i -1);
-				
+
 			} while(index2 > size_i -1);
 
         } while (index1 < 0 || index1 >= size_i || index2 < 0 || index2 >= size_i);
@@ -69,7 +69,7 @@ int main() {
         printf("\n==== Switching ==== \narr1[%d] = %d (Address: %u) \narr2[%d] = %d (Address: %u)\n",
                index1, arr1[index1], (arr1 + index1), index2, arr2[index2], (arr2 + index2));
 
-        swap(arr1, arr2, size_i, index1, index2);
+        swap(arr1, arr2, index1, index2);
 
         printf("\n===== To ===== \narr1[%d] = %d (Address: %u) \narr2[%d] = %d (Address: %u)\n",
                index1, arr1[index1], (arr1 + index1), index2, arr2[index2], (arr2 + index2));
@@ -90,22 +90,17 @@ int main() {
     return 0;
 }
 
-void swap(int *arr1, int *arr2, int size, int index1, int index2) {
-    if (index1 >= 0 && index1 < size && index2 >= 0 && index2 < size) {
+void swap(int *arr1, int *arr2, int index1, int index2) {
         int temp = *(arr1 + index1);
         *(arr1 + index1) = *(arr2 + index2);
         *(arr2 + index2) = temp;
-    } else {
-        printf("Wrong index, Try again!\n");
-    }
 }
 
 void display(int arr[], int size) {
     int i;
-    int *p;
-    p = &arr[0];
+
     for (i = 0; i < size; i++) {
-		printf("Value[%d]: %d, Address: %u\n", i, *(p + i), (p + i));
+		printf("Value[%d]: %d, Address: %u\n", i, *(arr + i), (arr + i));
     }
     printf("\n");
 }
